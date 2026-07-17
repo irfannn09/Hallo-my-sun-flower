@@ -10,7 +10,7 @@ export function MusicToggle() {
     <button
       onClick={toggleMusic}
       title={isPlaying ? "Matikan musik" : "Putar musik"}
-      className="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-baby-blue text-gray-700 hover:bg-baby-blue-dark transition-colors"
+      className="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-baby-blue text-ink hover:bg-lavender-dark transition-colors"
     >
       {isPlaying ? <Music className="h-4 w-4" /> : <VolumeX className="h-4 w-4" />}
     </button>

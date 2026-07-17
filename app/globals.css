@@ -13,14 +13,12 @@ html {
 
 body {
   @apply text-ink font-body;
-  background-color: #fdf9ff;
-  /* Empat semburat warna lembut menempel di sudut layar (fixed), jadi
-     ke manapun halaman di-scroll, seluruh situs tetap terasa berwarna —
-     bukan cuma bagian hero yang bergradasi lalu putih polos setelahnya. */
-  background-image: radial-gradient(at 0% 0%, rgba(197, 173, 237, 0.4) 0px, transparent 55%),
-    radial-gradient(at 100% 0%, rgba(248, 171, 235, 0.35) 0px, transparent 55%),
-    radial-gradient(at 100% 100%, rgba(162, 210, 255, 0.4) 0px, transparent 55%),
-    radial-gradient(at 0% 100%, rgba(188, 224, 255, 0.35) 0px, transparent 55%);
+  background-color: #030712;
+  /* Empat semburat warna berpendar di sudut layar (fixed) untuk tema gelap premium */
+  background-image: radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.22) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.2) 0px, transparent 55%),
+    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.22) 0px, transparent 55%),
+    radial-gradient(at 0% 100%, rgba(29, 78, 216, 0.18) 0px, transparent 55%);
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
@@ -29,19 +27,20 @@ body {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #f6effe;
+  background: #050814;
 }
 ::-webkit-scrollbar-thumb {
-  background: #c5aded;
+  background: #7c3aed;
   border-radius: 999px;
 }
 
-/* Aksen "washi tape" dipakai di kartu polaroid & sticky notes */
+/* Aksen "washi tape" kaca berpendar untuk polaroid & notes */
 .tape {
   position: absolute;
   width: 3.5rem;
   height: 1.1rem;
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  box-shadow: 0 2px 4px rgba(63, 47, 92, 0.12);
+  background: rgba(139, 92, 246, 0.18);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.25);
+  backdrop-filter: blur(2px);
 }

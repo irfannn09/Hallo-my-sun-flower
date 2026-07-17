@@ -21,28 +21,37 @@ const defaultEvents: TimelineEvent[] = [
 export function Timeline({ events = defaultEvents }: { events?: TimelineEvent[] }) {
   return (
     <div className="relative mx-auto max-w-2xl">
-      <div className="absolute left-4 top-0 h-full w-0.5 bg-lavender-dark/50 md:left-1/2" />
-      <div className="flex flex-col gap-10">
-        {events.map((event, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            className={`relative flex flex-col gap-2 pl-12 md:w-1/2 md:pl-0 ${
-              i % 2 === 0 ? "md:pr-10 md:self-start md:text-right" : "md:pl-10 md:self-end"
-            }`}
-          >
-            <span className="absolute left-2.5 top-1 flex h-4 w-4 items-center justify-center rounded-full bg-love-red md:left-auto md:right-[-8px] md:[&:last-child]:right-auto">
-              <Heart className="h-2.5 w-2.5 fill-white text-white" />
-            </span>
-            <p className="text-xs font-semibold uppercase tracking-wide text-love-red">
-              {event.date}
-            </p>
-            <p className="font-display text-lg italic text-ink">{event.title}</p>
-            <p className="text-sm text-ink-soft">{event.description}</p>
-          </motion.div>
-        ))}
+      <div className="absolute left-4 top-0 h-full w-0.5 bg-violet-500/30 shadow-[0_0_8px_rgba(139,92,246,0.3)] md:left-1/2 md:-translate-x-1/2" />
+      <div className="flex flex-col gap-8">
+        {events.map((event, i) => {
+          const isEven = i % 2 === 0;
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, x: isEven ? -30 : 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className={`relative flex flex-col gap-2 rounded-2xl bg-slate-900/30 border border-white/5 p-5 pl-12 backdrop-blur-sm transition-all hover:bg-slate-900/50 hover:border-violet-500/25 hover:shadow-lg hover:shadow-violet-950/20 md:w-[calc(50%-20px)] md:pl-5 ${
+                isEven ? "md:pr-8 md:self-start md:text-right" : "md:pl-8 md:self-end"
+              }`}
+            >
+              {/* Heart Marker */}
+              <span className={`absolute top-6 flex h-5 w-5 items-center justify-center rounded-full bg-love-red shadow-[0_0_10px_rgba(168,85,247,0.7)] transition-transform hover:scale-110 ${
+                isEven 
+                  ? "left-3 md:left-auto md:right-[-31px]" 
+                  : "left-3 md:left-[-31px]"
+              }`}>
+                <Heart className="h-2.5 w-2.5 fill-white text-white" />
+              </span>
+
+              <p className="text-xs font-semibold uppercase tracking-wide text-love-red">
+                {event.date}
+              </p>
+              <p className="font-display text-lg italic text-ink">{event.title}</p>
+              <p className="text-sm text-ink-soft leading-relaxed">{event.description}</p>
+            </motion.div>
+          );
+        })}
       </div>
     </div>
   );

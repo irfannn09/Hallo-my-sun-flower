@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Heart } from "lucide-react";
-import { Butterfly } from "../animations/Butterfly";
-import { Sunflower } from "../animations/Sunflower";
 import { Sparkles } from "../animations/Sparkles";
 
 const links = [
@@ -13,9 +12,8 @@ const links = [
   { label: "Tentang Kami", href: "/about" },
 ];
 
-// Kartu polaroid dekoratif yang ditumpuk & dimiringkan seperti papan gabus —
-// elemen "signature" dari halaman ini, menggantikan hero simetris + tombol
-// pil yang biasa dipakai template romantis pada umumnya.
+// Kartu polaroid dekoratif yang ditumpuk & dimiringkan dengan gaya glassmorphic mewah.
+// Menggunakan ilustrasi romantis hasil generate untuk menggantikan SVG ilustrasi lama.
 function PolaroidStack() {
   return (
     <div className="relative mx-auto h-80 w-72 sm:h-96 sm:w-80">
@@ -23,39 +21,57 @@ function PolaroidStack() {
         initial={{ opacity: 0, y: 20, rotate: -10 }}
         animate={{ opacity: 1, y: 0, rotate: -9 }}
         transition={{ delay: 0.3, duration: 0.6 }}
-        className="absolute left-0 top-6 flex w-52 -rotate-6 flex-col items-center gap-3 rounded-sm bg-white p-3 pb-6 shadow-xl"
+        className="absolute left-0 top-6 flex w-48 -rotate-6 flex-col items-center gap-2 rounded bg-slate-900/80 p-2.5 pb-5 shadow-2xl border border-white/10 backdrop-blur-md sm:w-52"
       >
         <span className="tape -top-3 left-6 -rotate-6" />
-        <div className="flex h-40 w-full items-center justify-center rounded-sm bg-petal">
-          <Butterfly className="static" color="#9c5cc4" />
+        <div className="relative h-32 w-full overflow-hidden rounded bg-slate-950 sm:h-36">
+          <Image
+            src="/images/couple_stars.jpg"
+            alt="Mimpi indah kita"
+            fill
+            className="object-cover transition-transform duration-500 hover:scale-105"
+            priority
+          />
         </div>
-        <p className="font-display text-sm italic text-ink-soft">kupu-kupu kita</p>
+        <p className="font-display text-xs italic text-ink-soft sm:text-sm">mimpi indah kita 🌌</p>
       </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 20, rotate: 10 }}
         animate={{ opacity: 1, y: 0, rotate: 7 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="absolute right-0 top-0 flex w-52 rotate-6 flex-col items-center gap-3 rounded-sm bg-white p-3 pb-6 shadow-xl"
+        className="absolute right-0 top-0 flex w-48 rotate-6 flex-col items-center gap-2 rounded bg-slate-900/80 p-2.5 pb-5 shadow-2xl border border-white/10 backdrop-blur-md sm:w-52"
       >
         <span className="tape -top-3 right-6 rotate-3" />
-        <div className="flex h-40 w-full items-center justify-center rounded-sm bg-skymist">
-          <Sunflower className="static" size={80} />
+        <div className="relative h-32 w-full overflow-hidden rounded bg-slate-950 sm:h-36">
+          <Image
+            src="/images/couple_cozy.jpg"
+            alt="Secangkir cerita"
+            fill
+            className="object-cover transition-transform duration-500 hover:scale-105"
+            priority
+          />
         </div>
-        <p className="font-display text-sm italic text-ink-soft">bunga favoritmu</p>
+        <p className="font-display text-xs italic text-ink-soft sm:text-sm">secangkir cerita ☕</p>
       </motion.div>
 
       <motion.div
         initial={{ opacity: 0, y: 20, rotate: -2 }}
         animate={{ opacity: 1, y: 0, rotate: -2 }}
         transition={{ delay: 0.7, duration: 0.6 }}
-        className="absolute bottom-0 left-8 flex w-52 flex-col items-center gap-3 rounded-sm bg-white p-3 pb-6 shadow-2xl"
+        className="absolute bottom-0 left-8 flex w-48 flex-col items-center gap-2 rounded bg-slate-900/80 p-2.5 pb-5 shadow-2xl border border-white/10 backdrop-blur-md sm:w-52"
       >
         <span className="tape -top-3 left-1/2 -translate-x-1/2 rotate-1" />
-        <div className="flex h-40 w-full items-center justify-center rounded-sm bg-lavender/50">
-          <Heart className="h-14 w-14 fill-love-red text-love-red" />
+        <div className="relative h-32 w-full overflow-hidden rounded bg-slate-950 sm:h-36">
+          <Image
+            src="/images/couple_sunset.jpg"
+            alt="Selamanya bersama"
+            fill
+            className="object-cover transition-transform duration-500 hover:scale-105"
+            priority
+          />
         </div>
-        <p className="font-display text-sm italic text-ink-soft">kita, sampai kapan pun</p>
+        <p className="font-display text-xs italic text-ink-soft sm:text-sm">selamanya bersama 🌅</p>
       </motion.div>
     </div>
   );
@@ -63,11 +79,11 @@ function PolaroidStack() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-dreamy-gradient px-5 pb-20 pt-16">
+    <section className="relative overflow-hidden bg-dreamy-gradient px-5 pb-20 pt-16 border-b border-white/5">
       <Sparkles count={18} />
 
       <div className="mx-auto grid max-w-6xl grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-8">
-        {/* Kolom teks — asimetris, rata kiri, bukan hero tersentral */}
+        {/* Kolom teks — asimetris, rata kiri */}
         <div>
           <motion.p
             initial={{ opacity: 0, x: -10 }}
@@ -86,14 +102,14 @@ export function Hero() {
           >
             Kisah cinta
             <br />
-            kecil <span className="italic text-love-red">kami.</span>
+            kecil <span className="italic bg-gradient-to-r from-violet-400 to-indigo-400 bg-clip-text text-transparent drop-shadow-sm">kami.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-5 max-w-md text-ink-soft"
+            className="mt-5 max-w-md text-ink-soft leading-relaxed"
           >
             Setiap foto dan catatan kecil kami simpan di sini — bukan
             supaya sempurna, tapi supaya tidak lupa betapa kami saling
@@ -119,7 +135,7 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Kolom visual — tumpukan polaroid, elemen signature halaman ini */}
+        {/* Kolom visual — tumpukan polaroid */}
         <PolaroidStack />
       </div>
     </section>

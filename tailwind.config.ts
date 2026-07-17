@@ -8,24 +8,23 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palet inti — diminta langsung oleh pemilik proyek.
-        lavender: "#c5aded",
-        "lavender-dark": "#a888dd",
-        blossom: "#f8abeb",
-        petal: "#ffc8dd",
-        skymist: "#bce0ff",
-        cornflower: "#a2d2ff",
-        // Warna tinta tambahan supaya teks tetap terbaca di atas pastel.
-        ink: "#3f2f5c",
-        "ink-soft": "#6f5f8c",
-        cream: "#fdf9ff",
-        // Alias lama dipertahankan supaya class name di komponen tidak perlu
-        // diubah satu-satu — nilainya sekarang memetakan ke palet baru.
-        "pink-pastel": "#ffc8dd",
-        "pink-pastel-dark": "#f8abeb",
-        "baby-blue": "#bce0ff",
-        "baby-blue-dark": "#a2d2ff",
-        "love-red": "#9c5cc4",
+        // Palet inti — diubah ke tema premium ungu & biru tua.
+        lavender: "#8b5cf6",
+        "lavender-dark": "#6d28d9",
+        blossom: "#0ea5e9",
+        petal: "#4f46e5",
+        skymist: "#3b82f6",
+        cornflower: "#1d4ed8",
+        // Warna tinta tambahan supaya teks tetap terbaca terang di atas tema gelap.
+        ink: "#f8fafc",
+        "ink-soft": "#94a3b8",
+        cream: "#050814",
+        // Alias lama dipetakan ke palet gelap & neon baru.
+        "pink-pastel": "#7c3aed",
+        "pink-pastel-dark": "#6366f1",
+        "baby-blue": "#1e1b4b",
+        "baby-blue-dark": "#0f172a",
+        "love-red": "#a855f7",
       },
       fontFamily: {
         display: ["var(--font-display)"],
@@ -33,9 +32,9 @@ const config: Config = {
       },
       backgroundImage: {
         "dreamy-gradient":
-          "linear-gradient(135deg, #c5aded 0%, #bce0ff 55%, #ffc8dd 100%)",
+          "linear-gradient(135deg, #050814 0%, #1e1b4b 50%, #030712 100%)",
         "romantic-gradient":
-          "linear-gradient(135deg, #f8abeb 0%, #c5aded 50%, #a2d2ff 100%)",
+          "linear-gradient(135deg, #7c3aed 0%, #4f46e5 50%, #020617 100%)",
       },
       keyframes: {
         float: {

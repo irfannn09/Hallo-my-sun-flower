@@ -47,12 +47,12 @@ export function NotesGrid() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: (i % 6) * 0.05 }}
-            whileHover={{ scale: 1.03, rotate: 0 }}
-            className={`relative ${colorSet.bg} ${colorSet.border} ${rotation} border p-5 pt-7 shadow-md transition-transform`}
+            whileHover={{ scale: 1.04, rotate: 0 }}
+            className={`relative ${colorSet.bg} ${colorSet.border} ${rotation} rounded-2xl border p-6 pt-8 shadow-xl shadow-slate-950/30 transition-transform`}
           >
             <span className={`tape -top-2 left-1/2 -translate-x-1/2 ${tapeRotation}`} />
             <p className="font-display text-lg italic text-ink">{note.title}</p>
-            <p className="mt-2 whitespace-pre-line text-sm text-ink-soft">{note.content}</p>
+            <p className="mt-2 whitespace-pre-line text-sm text-ink-soft leading-relaxed">{note.content}</p>
             <p className="mt-4 text-right text-xs text-ink-soft/70">{formatDate(note.createdAt)}</p>
           </motion.div>
         );
